@@ -2,7 +2,7 @@
 
 # 🏠 Dewald's Homelab
 
-### A hands-on environment for learning virtualization, networking, Linux, self-hosting, storage, and automation.
+### Hands-on infrastructure for learning virtualization, networking, Linux, self-hosting, storage, and automation.
 
 ![Proxmox](https://img.shields.io/badge/Proxmox-E57000?style=for-the-badge&logo=proxmox&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
@@ -10,34 +10,34 @@
 ![Home Assistant](https://img.shields.io/badge/Home_Assistant-18BCF2?style=for-the-badge&logo=homeassistant&logoColor=white)
 ![Pi-hole](https://img.shields.io/badge/Pi--hole-96060C?style=for-the-badge&logo=pihole&logoColor=white)
 
+**[Architecture](docs/architecture.md) · [Proxmox](docs/proxmox.md) · [Networking](docs/networking.md) · [Storage](docs/storage.md) · [Services](docs/services.md) · [Diagrams](diagrams/README.md) · [Roadmap](ROADMAP.md)**
+
 </div>
 
 ---
 
 ## 📖 About
 
-This repository documents my personal homelab and the systems I use to learn more about IT infrastructure.
+This repository documents my personal homelab and the systems I use to build practical experience with IT infrastructure.
 
-My homelab gives me a practical environment where I can experiment with:
+I use the lab to learn by running real services, testing changes, troubleshooting failures, and documenting what I discover. Areas I actively work with include:
 
-- Virtualization
+- Virtualization and containers
 - Linux administration
-- Networking
-- Storage
-- Self-hosting
+- Networking and DNS
+- Storage and file sharing
+- Self-hosted services
 - Home automation
-- Troubleshooting
-- PC hardware
+- Monitoring
+- PC hardware and troubleshooting
 
-The goal of this repository is to document what I build, what I learn, problems I encounter, and how I solve them.
+This is a living lab rather than a finished project. The layout and services change as I learn and experiment.
 
 ---
 
 ## 🖥️ Main Server
 
-My primary server runs **Proxmox VE** and provides the virtualization platform for my lab.
-
-### Hardware
+My primary server runs **Proxmox VE** and provides the virtualization platform for the lab.
 
 | Component | Specification |
 |---|---|
@@ -50,188 +50,154 @@ My primary server runs **Proxmox VE** and provides the virtualization platform f
 
 ---
 
-## 🧱 Infrastructure
-
-```text
-                    ┌─────────────────────┐
-                    │    Home Network     │
-                    └──────────┬──────────┘
-                               │
-                        ┌──────▼──────┐
-                        │   Proxmox   │
-                        │    Host     │
-                        └──────┬──────┘
-                               │
-             ┌─────────────────┼─────────────────┐
-             │                 │                 │
-        ┌────▼────┐       ┌────▼────┐       ┌────▼────┐
-        │  VMs    │       │  LXCs   │       │ Storage │
-        └─────────┘       └─────────┘       └─────────┘
-             │                 │                 │
-       HAOS / OPNsense    Self-hosted           ZFS
-       Linux VMs          services               SMB
-```
-
----
-
 ## 🧩 Current Proxmox Workloads
 
 ### Linux Containers (LXC)
 
 | ID | Name | Role |
 |---:|---|---|
-| 101 | Jellyfin | Self-hosted media server |
-| 102 | debianSMB | Debian-based SMB file sharing |
-| 103 | Uptime Kuma | Service and uptime monitoring |
-| 104 | Homepage | Homelab service dashboard |
-| 108 | Pi-hole | Network-wide DNS filtering |
-| 109 | Immich | Self-hosted photo management |
+| 101 | `jellyfin` | Self-hosted media server |
+| 102 | `debianSMB` | Debian-based SMB file sharing |
+| 103 | `uptimekuma` | Service availability monitoring |
+| 104 | `homepage` | Homelab service dashboard |
+| 108 | `pihole` | Network-wide DNS filtering |
+| 109 | `immich` | Self-hosted photo management |
 
 ### Virtual Machines
 
 | ID | Name | Role |
 |---:|---|---|
-| 100 | haos18-2 | Home Assistant OS |
-| 105 | OPNsense | Firewall and networking lab |
-| 106 | test | Linux test VM |
-| 107 | Omarchy | Linux VM |
+| 100 | `haos18-2` | Home Assistant OS |
+| 105 | `opnsense` | Firewall and networking lab |
+| 106 | `test` | Linux testing and experimentation |
+| 107 | `Omarchy` | Linux desktop environment |
 
-This inventory reflects the current Proxmox environment and will change as the lab evolves.
+---
+
+## 💾 Storage Overview
+
+| Storage | Role |
+|---|---|
+| `fourTB` | Higher-capacity homelab data storage |
+| `local` | Proxmox local storage |
+| `local-lvm` | VM and LXC disk storage |
+
+Detailed notes are in [docs/storage.md](docs/storage.md).
+
+---
+
+## 🧱 Architecture
+
+```text
+Proxmox VE Host (pve)
+|
++-- VMs
+|   +-- Home Assistant OS
+|   +-- OPNsense
+|   +-- Linux test VM
+|   +-- Omarchy
+|
++-- LXCs
+|   +-- Jellyfin
+|   +-- debianSMB
+|   +-- Uptime Kuma
+|   +-- Homepage
+|   +-- Pi-hole
+|   +-- Immich
+|
++-- Storage
+    +-- fourTB
+    +-- local
+    +-- local-lvm
+```
+
+See the [architecture documentation](docs/architecture.md) and [diagrams](diagrams/README.md) for more detail.
 
 ---
 
 ## ⚙️ Services & Technologies
 
-### 🖥️ Virtualization
+### Virtualization
 
-**Proxmox VE**
+**Proxmox VE** is the main platform for running virtual machines and Linux containers.
 
-Used as the main virtualization platform for running virtual machines and Linux containers.
+### Networking
 
----
+- **OPNsense** — routing, firewalling, interfaces, and network experimentation
+- **Pi-hole** — DNS-based network filtering
+- **Uptime Kuma** — monitoring service reachability
 
-### 💾 Storage
+### Storage & File Sharing
 
-**ZFS**
+- **ZFS** — storage-management learning and data organization
+- **SMB** — network file sharing through the `debianSMB` LXC
 
-Used for managing storage on the Proxmox server and providing storage for services and network shares.
+### Media & Photos
 
-**SMB**
+- **Jellyfin** — self-hosted media
+- **Immich** — self-hosted photo management and backup
 
-Used for sharing files across devices on the local network.
+### Home Automation
 
----
+- **Home Assistant OS** — central home-automation platform
+- **ESPHome** — ESP32-based automation and electronics projects
 
-### 🌐 Networking
+### Desktop & Streaming
 
-**OPNsense**
-
-Used in my lab for experimenting with routing, firewalling, and network configuration.
-
-**Pi-hole**
-
-Provides network-wide DNS filtering.
-
----
-
-### 📊 Monitoring & Dashboard
-
-**Uptime Kuma**
-
-Used to monitor the availability of homelab services.
-
-**Homepage**
-
-Provides a central dashboard for accessing and viewing homelab services.
-
----
-
-### 🎬 Media & Photos
-
-**Jellyfin**
-
-Self-hosted media server used inside the home network.
-
-**Immich**
-
-Self-hosted photo management and backup platform.
-
----
-
-### 🎮 Remote Desktop & Streaming
-
-**Sunshine + Moonlight**
-
-Used for low-latency desktop and game streaming between systems on my local network.
-
----
-
-### 🏠 Home Automation
-
-**Home Assistant**
-
-Used as the central platform for home automation.
-
-**ESPHome**
-
-Used with ESP32 devices for custom sensors, controls, and electronics projects.
-
----
-
-## 🐧 Linux
-
-Linux is used throughout the homelab for servers, containers, virtual machines, and experimentation.
-
-I use the lab to improve my knowledge of:
-
-- Linux administration
-- Services
-- Permissions
-- Networking
-- Storage
-- Troubleshooting
-- Virtual machines
-- Containers
+- **Omarchy** — Linux desktop VM
+- **Sunshine + Moonlight** — low-latency desktop and game streaming on the local network
 
 ---
 
 ## 📚 Documentation
 
-As this repository grows, detailed documentation will be separated into dedicated sections:
-
-| Documentation | Description |
+| Page | What it covers |
 |---|---|
-| `docs/architecture.md` | Overall homelab architecture and workload inventory |
-| `docs/proxmox.md` | Proxmox setup and virtualization |
-| `docs/networking.md` | Networking and firewall notes |
-| `docs/storage.md` | ZFS and storage configuration |
-| `docs/services.md` | Self-hosted services |
-| `diagrams/` | Network and infrastructure diagrams |
-| `configs/` | Sanitized configuration examples |
+| [Architecture](docs/architecture.md) | Overall design and workload layout |
+| [Proxmox](docs/proxmox.md) | Host, VMs, LXCs, storage and virtualization |
+| [Networking](docs/networking.md) | Network services and concepts |
+| [Storage](docs/storage.md) | Proxmox storage, ZFS and SMB |
+| [Services](docs/services.md) | Current hosted workloads |
+| [Home Assistant](docs/home-assistant.md) | Home Assistant OS and ESPHome |
+| [Media](docs/media.md) | Jellyfin and Immich |
+| [Monitoring](docs/monitoring.md) | Uptime Kuma and Homepage |
+| [OPNsense](docs/opnsense.md) | Firewall and routing lab |
+| [Pi-hole](docs/pihole.md) | DNS filtering |
+| [SMB](docs/smb.md) | Debian SMB file sharing |
+| [Linux Lab](docs/linux-lab.md) | Linux test VM and experimentation |
+| [Remote Desktop](docs/remote-desktop.md) | Sunshine, Moonlight and Omarchy |
+| [Diagrams](diagrams/README.md) | Sanitized topology diagrams |
+| [Sanitized Configs](configs/README.md) | Rules for safe public config examples |
+
+---
+
+## 🚧 Homelab Status
+
+**Status: Active and evolving**
+
+The homelab changes regularly as I test software, reorganize services, learn new concepts, and improve reliability. The repository is intended to track that progression rather than present the environment as permanently finished.
+
+Planned improvements and learning goals are tracked in [ROADMAP.md](ROADMAP.md), while notable repository and lab-documentation changes are tracked in [CHANGELOG.md](CHANGELOG.md).
 
 ---
 
 ## 🔐 Security & Privacy
 
-This repository intentionally does **not** contain:
+This repository is public, so documentation is deliberately sanitized.
+
+It does **not** intentionally publish:
 
 - Passwords
-- API keys
-- Authentication tokens
-- VPN private keys
+- API keys or authentication tokens
+- VPN/SSH private keys
 - Private certificates
-- Sensitive configuration files
-- Personally identifying network information
+- Wi-Fi credentials
+- Internal addressing that is unnecessary to the documentation
+- Sensitive firewall rules
+- Private external endpoints
+- Personally identifying configuration data
 
-Any configuration examples added to this repository will be sanitized before being published.
-
----
-
-## 🚧 Current Status
-
-This homelab is continuously changing as I experiment with new technologies and improve the infrastructure.
-
-Future documentation will cover more of the individual systems, services, network design, and lessons learned along the way.
+See [SECURITY.md](SECURITY.md) and [configs/README.md](configs/README.md) for the repository's disclosure and sanitization rules.
 
 ---
 
