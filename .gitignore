@@ -1,0 +1,57 @@
+# Environment and secrets
+.env
+.env.*
+*.env
+*.secret
+*.secrets
+secrets.*
+
+# Keys and certificates
+*.key
+*.pem
+*.p12
+*.pfx
+*.jks
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+
+# VPN / WireGuard / OpenVPN sensitive material
+*.ovpn
+wg*.conf
+privatekey
+private-key
+
+# Backups and archives
+*.bak
+*.backup
+*.old
+*.orig
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.rar
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# OS / editor metadata
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Local-only scratch/config directories
+private/
+secrets/
+backups/
+tmp/
