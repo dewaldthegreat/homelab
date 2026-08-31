@@ -68,11 +68,35 @@ My primary server runs **Proxmox VE** and provides the virtualization platform f
         │  VMs    │       │  LXCs   │       │ Storage │
         └─────────┘       └─────────┘       └─────────┘
              │                 │                 │
-       Linux Desktop      File Sharing          ZFS
-       OPNsense           Services
+       HAOS / OPNsense    Self-hosted           ZFS
+       Linux VMs          services               SMB
 ```
 
-This diagram will evolve as the homelab grows.
+---
+
+## 🧩 Current Proxmox Workloads
+
+### Linux Containers (LXC)
+
+| ID | Name | Role |
+|---:|---|---|
+| 101 | Jellyfin | Self-hosted media server |
+| 102 | debianSMB | Debian-based SMB file sharing |
+| 103 | Uptime Kuma | Service and uptime monitoring |
+| 104 | Homepage | Homelab service dashboard |
+| 108 | Pi-hole | Network-wide DNS filtering |
+| 109 | Immich | Self-hosted photo management |
+
+### Virtual Machines
+
+| ID | Name | Role |
+|---:|---|---|
+| 100 | haos18-2 | Home Assistant OS |
+| 105 | OPNsense | Firewall and networking lab |
+| 106 | test | Linux test VM |
+| 107 | Omarchy | Linux VM |
+
+This inventory reflects the current Proxmox environment and will change as the lab evolves.
 
 ---
 
@@ -110,11 +134,27 @@ Provides network-wide DNS filtering.
 
 ---
 
-### 🎬 Media
+### 📊 Monitoring & Dashboard
+
+**Uptime Kuma**
+
+Used to monitor the availability of homelab services.
+
+**Homepage**
+
+Provides a central dashboard for accessing and viewing homelab services.
+
+---
+
+### 🎬 Media & Photos
 
 **Jellyfin**
 
 Self-hosted media server used inside the home network.
+
+**Immich**
+
+Self-hosted photo management and backup platform.
 
 ---
 
@@ -140,7 +180,7 @@ Used with ESP32 devices for custom sensors, controls, and electronics projects.
 
 ## 🐧 Linux
 
-Linux is used throughout the homelab for servers, containers, and experimentation.
+Linux is used throughout the homelab for servers, containers, virtual machines, and experimentation.
 
 I use the lab to improve my knowledge of:
 
@@ -161,7 +201,7 @@ As this repository grows, detailed documentation will be separated into dedicate
 
 | Documentation | Description |
 |---|---|
-| `docs/architecture.md` | Overall homelab architecture |
+| `docs/architecture.md` | Overall homelab architecture and workload inventory |
 | `docs/proxmox.md` | Proxmox setup and virtualization |
 | `docs/networking.md` | Networking and firewall notes |
 | `docs/storage.md` | ZFS and storage configuration |
