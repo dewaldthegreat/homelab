@@ -1,36 +1,60 @@
 # Services
 
-This document tracks the main services and platforms I use in my homelab.
+This document tracks the main services and platforms currently running in my homelab.
 
-## Current Services
+## Linux Containers (LXC)
 
-### Jellyfin
+### 101 — Jellyfin
 
 Self-hosted media server used inside the home network.
 
-### Pi-hole
+### 102 — debianSMB
+
+Debian-based container used for SMB network file sharing.
+
+### 103 — Uptime Kuma
+
+Monitors the availability of homelab services.
+
+### 104 — Homepage
+
+Provides a central dashboard for accessing and viewing homelab services.
+
+### 108 — Pi-hole
 
 Provides network-wide DNS filtering.
 
-### Home Assistant
+### 109 — Immich
 
-Acts as the central platform for home automation.
+Self-hosted photo management and backup platform.
+
+## Virtual Machines
+
+### 100 — haos18-2
+
+Runs Home Assistant OS for home automation.
+
+### 105 — OPNsense
+
+Used for networking, routing, and firewall experimentation.
+
+### 106 — test
+
+Linux virtual machine used for testing and experimentation.
+
+### 107 — Omarchy
+
+Linux virtual machine in the Proxmox environment.
+
+## Other Technologies
 
 ### ESPHome
 
 Used with ESP32 devices for custom home automation and electronics projects.
 
-### SMB
-
-Provides network file sharing between devices.
-
 ### Sunshine + Moonlight
 
 Used for low-latency desktop and game streaming across the local network.
-
-### OPNsense
-
-Used for networking and firewall experimentation.
 
 ## Future Documentation
 
