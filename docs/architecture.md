@@ -1,12 +1,12 @@
 # Homelab Architecture
 
-This document provides a high-level overview of my homelab architecture.
+This document provides a high-level overview of my current homelab architecture.
 
 ## Core Platform
 
-The lab is centered around a **Proxmox VE** host that runs virtual machines and Linux containers.
+The lab is centered around a **Proxmox VE** host that runs both virtual machines and Linux containers.
 
-The main areas of the environment are:
+The environment currently includes:
 
 - Virtualization with Proxmox VE
 - Linux server and desktop workloads
@@ -14,24 +14,36 @@ The main areas of the environment are:
 - SMB file sharing
 - Network and firewall experimentation with OPNsense
 - DNS filtering with Pi-hole
+- Monitoring with Uptime Kuma
+- A central service dashboard with Homepage
 - Self-hosted media with Jellyfin
+- Self-hosted photo management with Immich
 - Home automation with Home Assistant and ESPHome
 - Local desktop and game streaming with Sunshine and Moonlight
 
-## High-Level Layout
+## Current Workload Layout
 
 ```text
-Home Network
-    |
-    +-- Proxmox VE Host
-    |     |
-    |     +-- Virtual Machines
-    |     +-- Linux Containers
-    |     +-- ZFS Storage
-    |
-    +-- Network Services
-    +-- Home Automation
-    +-- Client Devices
+Proxmox VE Host (pve)
+|
++-- Virtual Machines
+|   +-- 100  haos18-2   -> Home Assistant OS
+|   +-- 105  opnsense   -> Firewall / networking lab
+|   +-- 106  test       -> Linux test VM
+|   +-- 107  Omarchy    -> Linux VM
+|
++-- Linux Containers (LXC)
+|   +-- 101  jellyfin   -> Media server
+|   +-- 102  debianSMB  -> SMB file sharing
+|   +-- 103  uptimekuma -> Service monitoring
+|   +-- 104  homepage   -> Homelab dashboard
+|   +-- 108  pihole     -> DNS filtering
+|   +-- 109  immich     -> Photo management
+|
++-- Storage
+    +-- fourTB
+    +-- local
+    +-- local-lvm
 ```
 
 ## Design Goals
@@ -42,4 +54,4 @@ Home Network
 - Improve reliability and security over time
 - Avoid publishing sensitive addressing, credentials, or private configuration
 
-This document will be expanded as the homelab changes.
+This document will continue to evolve as the homelab changes.
