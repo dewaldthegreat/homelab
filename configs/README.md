@@ -1,25 +1,68 @@
 # Sanitized Configuration Examples
 
-This folder is reserved for configuration examples that are safe to publish.
+This folder is reserved for configuration examples that are safe to publish publicly.
 
-Before any configuration is committed here, sensitive values must be removed or replaced with placeholders.
+The goal is to document useful patterns from the homelab without exposing the live environment.
 
-Never publish:
+## Rules Before Committing a Config
+
+Every configuration must be reviewed and sanitized before it is added here.
+
+Replace real values with obvious placeholders, for example:
+
+```text
+SERVER_IP=<server-ip>
+GATEWAY=<gateway>
+USERNAME=<username>
+PASSWORD=<redacted>
+API_TOKEN=<redacted>
+DOMAIN=<example-domain>
+```
+
+## Never Publish
 
 - Passwords
 - API keys
 - Authentication tokens
+- Session cookies
 - VPN private keys
-- Private certificates
-- Public IP details that should remain private
-- Personally identifying information
+- SSH private keys
+- Private certificates or certificate keys
+- Wi-Fi credentials
+- Recovery codes
+- Real secrets from `.env` files
+- Public endpoints that should remain private
+- Sensitive internal addressing
+- Personally identifying paths or data
 
-Example placeholders should look like:
+## Before Publishing
+
+Use this checklist:
+
+- [ ] Remove usernames where they are not necessary
+- [ ] Replace private IPs/subnets with placeholders when they add no educational value
+- [ ] Remove all passwords, tokens, keys, and secrets
+- [ ] Remove personal domains or endpoints if they should not be public
+- [ ] Remove device identifiers if they could expose private information
+- [ ] Check comments as well as active configuration lines
+- [ ] Review the Git diff before committing
+
+## Example
+
+Unsafe:
 
 ```text
-SERVER_IP=<server-ip>
-USERNAME=<username>
-API_TOKEN=<redacted>
+api_token=REAL_SECRET_VALUE
+server=192.0.2.10
+password=my-real-password
 ```
 
-The goal is to document useful configuration patterns without exposing the live homelab.
+Safe:
+
+```text
+api_token=<redacted>
+server=<server-ip>
+password=<redacted>
+```
+
+The public repository should explain **how** something is configured, not provide credentials or a map to the live environment.
