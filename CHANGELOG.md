@@ -2,6 +2,21 @@
 
 This file tracks notable documentation and homelab-structure changes that are useful to record publicly.
 
+## 2026-09-01
+
+### Added
+
+- GLPI Help Desk and IT service management lab in Proxmox LXC `112`
+- Simulated Self-Service users and realistic incident/request tickets for Help Desk practice
+- Ticket workflow practice covering triage, assignment, troubleshooting, user communication, solutions, closure, and escalation
+- GLPI documentation with a DNS troubleshooting and escalation example
+
+### Updated
+
+- Main README with the GLPI workload and Help Desk learning area
+- Proxmox inventory with LXC `112`
+- Services documentation with the GLPI role and training purpose
+
 ## 2026-08-31
 
 ### Added
