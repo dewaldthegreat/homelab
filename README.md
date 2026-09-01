@@ -10,7 +10,7 @@
 ![Home Assistant](https://img.shields.io/badge/Home_Assistant-18BCF2?style=for-the-badge&logo=homeassistant&logoColor=white)
 ![Pi-hole](https://img.shields.io/badge/Pi--hole-96060C?style=for-the-badge&logo=pihole&logoColor=white)
 
-**[Architecture](docs/architecture.md) · [Proxmox](docs/proxmox.md) · [Networking](docs/networking.md) · [Storage](docs/storage.md) · [Services](docs/services.md) · [Troubleshooting](docs/troubleshooting.md) · [Diagrams](diagrams/README.md) · [Roadmap](ROADMAP.md)**
+**[Architecture](docs/architecture.md) · [Proxmox](docs/proxmox.md) · [Networking](docs/networking.md) · [Storage](docs/storage.md) · [Services](docs/services.md) · [GLPI Help Desk](docs/glpi-helpdesk.md) · [Troubleshooting](docs/troubleshooting.md) · [Diagrams](diagrams/README.md) · [Roadmap](ROADMAP.md)**
 
 </div>
 
@@ -30,6 +30,7 @@ I use the lab to learn by running real services, testing changes, troubleshootin
 - Home automation
 - Monitoring
 - PC hardware and troubleshooting
+- Help Desk and service-desk workflows
 
 This is a living lab rather than a finished project. The layout and services change as I learn and experiment.
 
@@ -62,6 +63,7 @@ My primary server runs **Proxmox VE** and provides the virtualization platform f
 | 104 | `homepage` | Homelab service dashboard |
 | 108 | `pihole` | Network-wide DNS filtering |
 | 109 | `immich` | Self-hosted photo management |
+| 112 | `glpi` | IT service management and Help Desk training |
 
 ### Virtual Machines
 
@@ -104,6 +106,7 @@ Proxmox VE Host (pve)
 |   +-- Homepage
 |   +-- Pi-hole
 |   +-- Immich
+|   +-- GLPI Help Desk
 |
 +-- Storage
     +-- fourTB
@@ -142,6 +145,10 @@ See the [architecture documentation](docs/architecture.md) and [diagrams](diagra
 - **Home Assistant OS** — central home-automation platform
 - **ESPHome** — ESP32-based automation and electronics projects
 
+### Help Desk & ITSM
+
+- **GLPI** — self-hosted ticketing environment for practising incident handling, service requests, user communication, documentation, troubleshooting, and escalation
+
 ### Desktop & Streaming
 
 - **Omarchy** — Linux desktop VM
@@ -170,6 +177,7 @@ See [Troubleshooting Case Studies](docs/troubleshooting.md) for the full write-u
 | [Networking](docs/networking.md) | Network services and concepts |
 | [Storage](docs/storage.md) | Proxmox storage, ZFS and SMB |
 | [Services](docs/services.md) | Current hosted workloads |
+| [GLPI Help Desk](docs/glpi-helpdesk.md) | Help Desk lab, ticket workflows, troubleshooting and escalation practice |
 | [Troubleshooting](docs/troubleshooting.md) | Real troubleshooting case studies and lessons learned |
 | [Home Assistant](docs/home-assistant.md) | Home Assistant OS and ESPHome |
 | [Media](docs/media.md) | Jellyfin and Immich |
