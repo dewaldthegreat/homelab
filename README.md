@@ -10,7 +10,7 @@
 ![Home Assistant](https://img.shields.io/badge/Home_Assistant-18BCF2?style=for-the-badge&logo=homeassistant&logoColor=white)
 ![Pi-hole](https://img.shields.io/badge/Pi--hole-96060C?style=for-the-badge&logo=pihole&logoColor=white)
 
-**[Architecture](docs/architecture.md) · [Proxmox](docs/proxmox.md) · [Networking](docs/networking.md) · [Storage](docs/storage.md) · [Services](docs/services.md) · [Diagrams](diagrams/README.md) · [Roadmap](ROADMAP.md)**
+**[Architecture](docs/architecture.md) · [Proxmox](docs/proxmox.md) · [Networking](docs/networking.md) · [Storage](docs/storage.md) · [Services](docs/services.md) · [Troubleshooting](docs/troubleshooting.md) · [Diagrams](diagrams/README.md) · [Roadmap](ROADMAP.md)**
 
 </div>
 
@@ -149,6 +149,18 @@ See the [architecture documentation](docs/architecture.md) and [diagrams](diagra
 
 ---
 
+## 🛠️ Troubleshooting Case Studies
+
+I document real troubleshooting situations to show the investigation process, the steps I tested, the result, and what I learned.
+
+Current case study:
+
+- **Windows PC boot loop and motherboard beep codes** — used the beep-code pattern to narrow down a likely hardware/RAM issue, powered the system down safely, reseated the RAM, cleared CMOS during troubleshooting, and re-tested the machine until it booted normally.
+
+See [Troubleshooting Case Studies](docs/troubleshooting.md) for the full write-up.
+
+---
+
 ## 📚 Documentation
 
 | Page | What it covers |
@@ -158,6 +170,7 @@ See the [architecture documentation](docs/architecture.md) and [diagrams](diagra
 | [Networking](docs/networking.md) | Network services and concepts |
 | [Storage](docs/storage.md) | Proxmox storage, ZFS and SMB |
 | [Services](docs/services.md) | Current hosted workloads |
+| [Troubleshooting](docs/troubleshooting.md) | Real troubleshooting case studies and lessons learned |
 | [Home Assistant](docs/home-assistant.md) | Home Assistant OS and ESPHome |
 | [Media](docs/media.md) | Jellyfin and Immich |
 | [Monitoring](docs/monitoring.md) | Uptime Kuma and Homepage |
