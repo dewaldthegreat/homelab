@@ -12,6 +12,7 @@ This page tracks the main workloads currently running in my Proxmox homelab and 
 | 104 | `homepage` | Central dashboard for homelab services |
 | 108 | `pihole` | Network-wide DNS filtering |
 | 109 | `immich` | Self-hosted photo management and backup |
+| 112 | `glpi` | IT service management and Help Desk training |
 
 ### 101 — Jellyfin
 
@@ -36,6 +37,12 @@ Provides DNS-based filtering for devices on the network and gives me practical e
 ### 109 — Immich
 
 Provides self-hosted photo management and backup inside the homelab.
+
+### 112 — GLPI
+
+Provides a self-hosted Help Desk and IT service management environment. I use it to practise realistic ticket triage, incident and request handling, user communication, internal troubleshooting notes, solution documentation, and escalation decisions.
+
+See [GLPI Help Desk Lab](glpi-helpdesk.md) for the detailed training setup and a documented DNS troubleshooting scenario.
 
 ## Virtual Machines
 
@@ -94,3 +101,4 @@ More detailed pages are available for major parts of the lab:
 - [SMB File Sharing](smb.md)
 - [Linux Lab](linux-lab.md)
 - [Remote Desktop and Streaming](remote-desktop.md)
+- [GLPI Help Desk Lab](glpi-helpdesk.md)
