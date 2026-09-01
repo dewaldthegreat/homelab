@@ -20,6 +20,7 @@ pve (Proxmox VE)
 |   +-- 104  homepage   [Dashboard]
 |   +-- 108  pihole     [DNS filtering]
 |   +-- 109  immich     [Photos]
+|   +-- 112  glpi       [ITSM / Help Desk training]
 |
 +-- Storage
     +-- fourTB
@@ -48,6 +49,7 @@ flowchart TD
     LXC --> HP[Homepage]
     LXC --> PH[Pi-hole]
     LXC --> IM[Immich]
+    LXC --> GLPI[GLPI Help Desk]
 
     ST --> FOUR[fourTB]
     ST --> LOCAL[local]
@@ -67,6 +69,7 @@ flowchart LR
     NET --> JF[Jellyfin]
     NET --> IM[Immich]
     NET --> HA[Home Assistant]
+    NET --> GLPI[GLPI Help Desk]
     UK[Uptime Kuma] -. monitors .-> PH
     UK -. monitors .-> JF
     UK -. monitors .-> IM
