@@ -32,6 +32,7 @@ Proxmox VE Host (pve)
 |   +-- 104  homepage   -> Homelab dashboard
 |   +-- 108  pihole     -> DNS filtering
 |   +-- 109  immich     -> Photo management
+|   +-- 112  glpi       -> IT service management and Help Desk training
 |
 +-- Storage
     +-- fourTB      -> Higher-capacity homelab data storage
@@ -95,6 +96,7 @@ Current examples include:
 - Homepage
 - Pi-hole
 - Immich
+- GLPI Help Desk
 
 ## Design Goals
 
@@ -111,4 +113,5 @@ Current examples include:
 - [Networking](networking.md)
 - [Storage](storage.md)
 - [Services](services.md)
+- [GLPI Help Desk Lab](glpi-helpdesk.md)
 - [Diagrams](../diagrams/README.md)
