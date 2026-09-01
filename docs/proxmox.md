@@ -25,6 +25,7 @@ Proxmox VE is the core virtualization platform in my homelab. I use it to run a 
 | 104 | Homepage | Self-hosted dashboard for organizing and accessing homelab services. |
 | 108 | Pi-hole | Network-wide DNS filtering and blocking for clients on the network. |
 | 109 | Immich | Self-hosted photo and video management platform. |
+| 112 | GLPI | IT service management and Help Desk training environment. |
 
 I use LXC containers for services that benefit from lightweight isolation without requiring a complete virtual machine.
 
@@ -38,6 +39,12 @@ I use LXC containers for services that benefit from lightweight isolation withou
 | 107 | Omarchy | Linux desktop VM used for desktop Linux experimentation. |
 
 Virtual machines are used when I want stronger isolation, a complete operating system, appliance-style deployment, or hardware/device configuration that is better suited to a VM.
+
+## Help Desk Lab
+
+The GLPI LXC provides a dedicated environment for practising IT support workflows without affecting production systems. The lab includes technician and Self-Service profiles, ITIL categories, ticket templates, simulated users, realistic support incidents, troubleshooting notes, solution documentation, and escalation practice.
+
+See [GLPI Help Desk Lab](glpi-helpdesk.md) for the detailed setup and practice workflow.
 
 ## Storage
 
@@ -66,6 +73,7 @@ My Proxmox environment gives me hands-on experience with:
 - Network file sharing
 - GPU/device passthrough experimentation
 - Service isolation
+- Help Desk and IT service management labs
 - Troubleshooting virtualized workloads
 - Backups, recovery, and rebuilding services
 
