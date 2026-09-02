@@ -2,10 +2,11 @@
 
 # 🏠 Dewald's Homelab
 
-### Hands-on infrastructure for learning virtualization, networking, Linux, self-hosting, storage, and automation.
+### Hands-on infrastructure for learning virtualization, networking, Linux, Windows, self-hosting, storage, automation, and IT support.
 
 ![Proxmox](https://img.shields.io/badge/Proxmox-E57000?style=for-the-badge&logo=proxmox&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![Windows](https://img.shields.io/badge/Windows-0078D4?style=for-the-badge&logo=windows&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Home Assistant](https://img.shields.io/badge/Home_Assistant-18BCF2?style=for-the-badge&logo=homeassistant&logoColor=white)
 ![Pi-hole](https://img.shields.io/badge/Pi--hole-96060C?style=for-the-badge&logo=pihole&logoColor=white)
@@ -23,12 +24,14 @@ This repository documents my personal homelab and the systems I use to build pra
 I use the lab to learn by running real services, testing changes, troubleshooting failures, and documenting what I discover. Areas I actively work with include:
 
 - Virtualization and containers
-- Linux administration
-- Networking and DNS
+- Linux and Windows administration
+- Active Directory and client/domain testing
+- Networking, DNS, firewalls, and remote access
 - Storage and file sharing
 - Self-hosted services
 - Home automation
 - Monitoring
+- Local AI and automation tooling
 - PC hardware and troubleshooting
 - Help Desk and service-desk workflows
 
@@ -64,6 +67,10 @@ My primary server runs **Proxmox VE** and provides the virtualization platform f
 | 108 | `pihole` | Network-wide DNS filtering |
 | 109 | `immich` | Self-hosted photo management |
 | 112 | `glpi` | IT service management and Help Desk training |
+| 113 | `remote-gateway` | Remote-access and networking gateway lab |
+| 114 | `hermesagent` | AI agent and automation environment |
+| 115 | `firecrawl` | Self-hosted web crawling and retrieval service |
+| 116 | `openwebui` | Local AI web interface and model experimentation |
 
 ### Virtual Machines
 
@@ -73,6 +80,8 @@ My primary server runs **Proxmox VE** and provides the virtualization platform f
 | 105 | `opnsense` | Firewall and networking lab |
 | 106 | `test` | Linux testing and experimentation |
 | 107 | `Omarchy` | Linux desktop environment |
+| 110 | `AD-DC01` | Active Directory / domain controller lab |
+| 111 | `win11` | Windows 11 client and administration lab |
 
 ---
 
@@ -83,6 +92,7 @@ My primary server runs **Proxmox VE** and provides the virtualization platform f
 | `fourTB` | Higher-capacity homelab data storage |
 | `local` | Proxmox local storage |
 | `local-lvm` | VM and LXC disk storage |
+| `localnetwork` | Additional network-backed homelab storage |
 
 Detailed notes are in [docs/storage.md](docs/storage.md).
 
@@ -98,6 +108,8 @@ Proxmox VE Host (pve)
 |   +-- OPNsense
 |   +-- Linux test VM
 |   +-- Omarchy
+|   +-- Active Directory Domain Controller
+|   +-- Windows 11 client
 |
 +-- LXCs
 |   +-- Jellyfin
@@ -107,11 +119,16 @@ Proxmox VE Host (pve)
 |   +-- Pi-hole
 |   +-- Immich
 |   +-- GLPI Help Desk
+|   +-- Remote Gateway
+|   +-- Hermes Agent
+|   +-- Firecrawl
+|   +-- Open WebUI
 |
 +-- Storage
     +-- fourTB
     +-- local
     +-- local-lvm
+    +-- localnetwork
 ```
 
 See the [architecture documentation](docs/architecture.md) and [diagrams](diagrams/README.md) for more detail.
@@ -129,6 +146,7 @@ See the [architecture documentation](docs/architecture.md) and [diagrams](diagra
 - **OPNsense** — routing, firewalling, interfaces, and network experimentation
 - **Pi-hole** — DNS-based network filtering
 - **Uptime Kuma** — monitoring service reachability
+- **Remote Gateway** — remote-access and network-gateway experimentation
 
 ### Storage & File Sharing
 
@@ -145,9 +163,20 @@ See the [architecture documentation](docs/architecture.md) and [diagrams](diagra
 - **Home Assistant OS** — central home-automation platform
 - **ESPHome** — ESP32-based automation and electronics projects
 
+### Windows & Directory Services
+
+- **Active Directory lab** — domain controller, identity, policy, and administration practice
+- **Windows 11 client VM** — client-side testing, domain administration, and IT support practice
+
 ### Help Desk & ITSM
 
 - **GLPI** — self-hosted ticketing environment for practising incident handling, service requests, user communication, documentation, troubleshooting, and escalation
+
+### AI & Automation Lab
+
+- **Hermes Agent** — agent-based automation and tool orchestration experiments
+- **Firecrawl** — self-hosted web crawling and retrieval service
+- **Open WebUI** — local AI interface for model and workflow experimentation
 
 ### Desktop & Streaming
 
