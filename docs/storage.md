@@ -1,6 +1,6 @@
 # Storage
 
-Storage in my homelab is managed through Proxmox VE and is split between host storage, virtual-machine/container storage, and higher-capacity data storage.
+Storage in my homelab is managed through Proxmox VE and is split between host storage, virtual-machine/container storage, higher-capacity data storage, and additional network-backed storage.
 
 ## Current Proxmox Storage
 
@@ -9,6 +9,7 @@ Storage in my homelab is managed through Proxmox VE and is split between host st
 | `fourTB` | Large-capacity storage used for homelab data and shared storage workloads |
 | `local` | Proxmox local storage used for host-managed files such as ISOs, templates, and other local content |
 | `local-lvm` | Proxmox LVM-thin storage used for virtual machine and container disks |
+| `localnetwork` | Additional network-backed storage available to the Proxmox host |
 
 The physical system includes an SSD and a 4 TB HDD. Storage roles can change as the lab evolves, so this page focuses on the logical layout rather than publishing private mount paths or detailed live configuration.
 
@@ -35,6 +36,8 @@ This lets me practice:
 - Shared-storage organization
 - Service-to-storage connectivity
 
+The Proxmox host also has a separate `localnetwork` storage target. Public documentation keeps its backing path and private network details intentionally abstract.
+
 ## VM and Container Storage
 
 Proxmox separates storage used by the host from storage assigned to virtual machines and containers. This gives me hands-on experience with deciding where workloads should live and how storage choices affect management and recovery.
@@ -48,6 +51,7 @@ Backup and recovery are areas I continue to improve. My documentation focuses on
 - ZFS storage management
 - VM and LXC disk allocation
 - SMB and network shares
+- Network-backed Proxmox storage
 - Linux permissions
 - Storage capacity planning
 - Backup and recovery concepts
