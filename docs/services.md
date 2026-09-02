@@ -13,6 +13,10 @@ This page tracks the main workloads currently running in my Proxmox homelab and 
 | 108 | `pihole` | Network-wide DNS filtering |
 | 109 | `immich` | Self-hosted photo management and backup |
 | 112 | `glpi` | IT service management and Help Desk training |
+| 113 | `remote-gateway` | Remote-access and networking gateway lab |
+| 114 | `hermesagent` | AI agent and automation environment |
+| 115 | `firecrawl` | Self-hosted web crawling and retrieval service |
+| 116 | `openwebui` | Local AI web interface and model experimentation |
 
 ### 101 — Jellyfin
 
@@ -44,6 +48,22 @@ Provides a self-hosted Help Desk and IT service management environment. I use it
 
 See [GLPI Help Desk Lab](glpi-helpdesk.md) for the detailed training setup and a documented DNS troubleshooting scenario.
 
+### 113 — Remote Gateway
+
+Provides a dedicated environment for remote-access and network-gateway experimentation while keeping the public documentation free of private addressing and endpoint details.
+
+### 114 — Hermes Agent
+
+Runs an AI-agent environment used for automation, tool orchestration, and practical experimentation with agent workflows.
+
+### 115 — Firecrawl
+
+Provides a self-hosted web crawling and retrieval service for experiments that need structured web content.
+
+### 116 — Open WebUI
+
+Provides a web interface for local AI model and workflow experimentation inside the homelab.
+
 ## Virtual Machines
 
 | ID | Name | Role |
@@ -52,6 +72,8 @@ See [GLPI Help Desk Lab](glpi-helpdesk.md) for the detailed training setup and a
 | 105 | `opnsense` | Firewall and networking lab |
 | 106 | `test` | Linux testing and experimentation |
 | 107 | `Omarchy` | Linux desktop environment |
+| 110 | `AD-DC01` | Active Directory / domain controller lab |
+| 111 | `win11` | Windows 11 client and administration lab |
 
 ### 100 — Home Assistant OS
 
@@ -68,6 +90,14 @@ A Linux virtual machine kept specifically for testing, experimentation, and lear
 ### 107 — Omarchy
 
 A Linux VM used as a desktop Linux environment in the lab.
+
+### 110 — AD-DC01
+
+Provides a Windows Active Directory/domain-controller lab for practising directory services, identity, domain administration, and related IT support tasks.
+
+### 111 — win11
+
+Provides a Windows 11 client environment for administration, domain/client testing, troubleshooting, and Help Desk practice.
 
 ## Other Technologies
 
@@ -87,7 +117,7 @@ Where practical, services are separated into their own VM or LXC. This makes it 
 - Troubleshoot one workload at a time
 - Rebuild individual services
 - Allocate resources independently
-- Understand dependencies between networking, storage, and applications
+- Understand dependencies between networking, storage, identity, and applications
 
 ## Documentation
 
