@@ -2,6 +2,26 @@
 
 This file tracks notable documentation and homelab-structure changes that are useful to record publicly.
 
+## 2026-09-02
+
+### Added
+
+- LXC `113` (`remote-gateway`) for remote-access and networking gateway experimentation
+- LXC `114` (`hermesagent`) for AI-agent automation and tool-orchestration experiments
+- LXC `115` (`firecrawl`) for self-hosted web crawling and retrieval
+- LXC `116` (`openwebui`) for local AI model and workflow experimentation
+- VM `110` (`AD-DC01`) for Active Directory/domain-controller administration practice
+- VM `111` (`win11`) as a Windows 11 client for domain, administration, troubleshooting, and Help Desk practice
+
+### Updated
+
+- Main homelab README with the current VM/LXC inventory and expanded technology areas
+- Proxmox documentation with the new workloads and Windows lab
+- Services documentation with roles for the new AI, remote-access, and Windows workloads
+- Architecture documentation with the expanded topology
+- Storage documentation to include the `localnetwork` storage target
+- Profile README to reflect Windows, Active Directory, remote-access, and AI/automation lab work
+
 ## 2026-09-01
 
 ### Added
